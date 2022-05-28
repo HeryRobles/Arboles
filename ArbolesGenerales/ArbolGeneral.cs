@@ -17,5 +17,24 @@ namespace ArbolesGenerales
         {
             raiz = new Nodo(dato);
         }
+
+        public Nodo Insertar(Nodo padre, string dato)
+        {
+            if (string.IsNullOrWhiteSpace(dato))
+            {
+                throw new Exception("El dato está Vacío");
+            }
+            if (padre is null)
+            {
+                throw new Exception("El padre no puede ser Nulo");
+            } 
+
+            if (padre.Hijo is null)
+            {
+                padre.Hijo = new Nodo(dato);
+                return padre.Hijo;
+            }
+        }
     }
+
 }
